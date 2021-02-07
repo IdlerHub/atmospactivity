@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0,user-scalable=no, minimal-ui"
+    viewport-fit="cover" />
+  <link rel="icon" href="<%= BASE_URL %>logo.ico">
+  <title>晒年味送祝福</title>
+  <style>
+    #cnzz_stat_icon_1279675055 {
+      display: none;
+    }
+
+    body {
+      /* IOS禁止微信调整字体大小 */
+      -webkit-text-size-adjust: 100% !important;
+      padding-bottom: env(safe-area-inset-bottom);
+      padding: 0;
+      margin: 0;
+      position: relative;
+    }
+
+    img {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      /* pointer-events:none; */
+      /* 禁止长按图片保存 */
+    }
+  </style>
+</head>
+<script>
+  (function () {
+    if (typeof WeixinJSBridge == 'object' && typeof WeixinJSBridge.invoke == 'function') {
+      handleFontSize();
+    } else {
+      document.addEventListener('WeixinJSBridgeReady', handleFontSize, false);
+    }
+    function handleFontSize() {
+      // 设置网页字体为默认大小
+      WeixinJSBridge.invoke('setFontSizeCallback', { fontSize: 0 });
+      // 重写设置网页字体大小的事件
+      WeixinJSBridge.on('menu:setfont', function () {
+        WeixinJSBridge.invoke('setFontSizeCallback', { fontSize: 0 });
+      });
+    }
+  })();
+
+</script>
+<!-- 华为云 -->
+<script src="./js/esdk-obs-browserjs-3.19.5.min.js"></script>
+<!-- 引入站长统计 -->
+<script
+  type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1279675055'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1279675055' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<body>
+  <noscript>
+    <strong>We're sorry but 晒年味送祝福 doesn't work properly without JavaScript enabled.
+      Please enable it to continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+
+</html>
